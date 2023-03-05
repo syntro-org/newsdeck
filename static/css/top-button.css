@@ -1,0 +1,31 @@
+.top-button {
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  justify-content: end;
+  color: #A72C2C;
+  border-radius: 50px;
+  border-color: transparent;
+  text-align: center;
+  font-size: 30px;
+  background-color: transparent;
+  z-index: 100;
+  transition: 0.5s;
+}
+
+.top-button:hover {
+  transform: scale(1.1);
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35%;
+  margin-bottom: 60%;
+  border-bottom: 15px solid #A72C2C;
+}

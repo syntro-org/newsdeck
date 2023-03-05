@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/more-button.css">
+    <link rel="stylesheet" href="/static/css/top-button.css">
+    <link rel="stylesheet" href="/static/css/support-button.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <title>Newsdeck - {{ .Header }}</title>
+</head>
+<body>
+    <nav class="header">
+        <ul>
+            <li>
+                <a href="/">
+                    <button data-text="Awesome" class="menu-button">
+                        <span class="actual-text">&nbsp;Главная&nbsp;</span>
+                        <span class="hover-text" aria-hidden="true">&nbsp;Главная&nbsp;</span>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="/posts">
+                    <button data-text="Awesome" class="menu-button">
+                        <span class="actual-text">&nbsp;Публикации&nbsp;</span>
+                        <span class="hover-text" aria-hidden="true">&nbsp;Публикации&nbsp;</span>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="/about">
+                    <button data-text="Awesome" class="menu-button">
+                        <span class="actual-text">&nbsp;О&nbsp;проекте&nbsp;</span>
+                        <span class="hover-text" aria-hidden="true">&nbsp;О&nbsp;проекте&nbsp;</span>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="/support">
+                    <button data-text="Awesome" class="menu-button">
+                        <span class="actual-text">&nbsp;Поддержать&nbsp;</span>
+                        <span class="hover-text" aria-hidden="true">&nbsp;Поддержать&nbsp;</span>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="/agreement">
+                    <button data-text="Awesome" class="menu-button">
+                        <span class="actual-text">&nbsp;Пользовательское&nbsp;соглашение&nbsp;</span>
+                        <span class="hover-text" aria-hidden="true">&nbsp;Пользовательское&nbsp;соглашение&nbsp;</span>
+                    </button>
+                </a>
+            </li>
+            <li><img src="/static/favicon.png" width="107" height="41"/></li>
+        </ul>
+    </nav>

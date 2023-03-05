@@ -1,0 +1,68 @@
+.header {
+  position: relative;
+  background-color: #2f2f2f;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.header li {
+  margin: 0;
+}
+
+.header a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu-button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.menu-button  {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #800000;
+  --fs-size: 1em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.menu-button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 13px var(--animation-color))
+}

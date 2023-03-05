@@ -1,0 +1,45 @@
+{{ template "header.html" . }}
+    <p id="top" class="accent text-center">Отображаемые новости поступают с задержкой 24 часа. Это связано с ограничением от агрегатора. <a
+            href="/support">Узнайте, как его снять</a></p>
+
+<div class="indent"></div>
+
+<div class="st-bg indent corner posts-container">
+    {{ range .Articles }}
+    <div class="thr-bg indent corner">
+        <img class="post-image" src="{{ .Image }}"/>
+        <div class="text-indent"></div>
+        <h3>{{ .Title }}</h3>
+        <p class="hint">Автор: {{ .Author }}</p>
+        <p class="hint">Дата публикации: {{ .PublishedAt}} </p>
+        <div class="small-indent"></div>
+        <p>{{ .Description }}</p>
+
+        <a href="/posts/{{ .Title }}">
+            <button class="more-button">
+                <p>Подробнее</p>
+                <svg stroke-width="4" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+                </svg>
+            </button>
+        </a>
+    </div>
+    {{ end }}
+</div>
+
+<div class="indent"></div>
+
+<a href="#top">
+    <button class="top-button">
+        <div class="arrow-up"></div>
+    </button>
+</a>
+
+<div class="st-bg indent corner">
+    <p>Не отображаются картинки некоторых новостей? Скорее всего вы находитесь в России, где данное агенство - заблокированный сервис. Чтобы увидеть картинки,
+        воспользуйтесь VPN. Либо же, вы можете продолжить использование сайта без картинок - остальная информация предоставляется
+        в полном объеме.
+    </p>
+</div>
+{{ template "footer.html" }}

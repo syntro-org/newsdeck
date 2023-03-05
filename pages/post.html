@@ -1,0 +1,15 @@
+{{ template "header.html" . }}
+<div class="st-bg indent corner">
+    <img src="{{ .Article.Image }}" />
+    <div class="text-indent"></div>
+    <h1>{{ .Article.Title }}</h1>
+    <p class="hint">Автор: {{ .Article.Author }}</p>
+    <p class="hint">Дата публикации: {{ .Article.PublishedAt }} </p>
+    <div class="small-indent"></div>
+    <p> {{ .Article.Content }} </p>
+    <div class="indent"></div>
+    <p class="hint"><abbr title="Если ссылка не открывается, значит данное СМИ заблокировано в вашей стране">Материал доступен полностью по</abbr><a href="{{ .Article.Url }}">этой ссылке</a></p>
+    <p class="accent">Полный текст новости может отображаться некорректно. Просим отнестись к этому с пониманием</p>
+    <p class="hint italic">Newsdeck и Συντρο не имеют отношения к предоставленному контенту</p>
+</div>
+{{ template "footer.html" }}
