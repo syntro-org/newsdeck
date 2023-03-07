@@ -54,9 +54,21 @@ func Collect() error {
 
 		formattedTime := t.Format("02.01.2006 15:04")
 
+		new := Article{
+			Author:      v.Author,
+			Title:       v.Title,
+			Description: v.Description,
+			Content:     v.Content,
+			Url:         v.Url,
+			Image:       v.Image,
+			PublishedAt: formattedTime,
+		}
+
 		// Get full text of article
 		response, err := http.Get(v.Url)
 		if err != nil {
+			correctedArticles = append(correctedArticles, new)
+			Articles = correctedArticles
 			return err
 		}
 		defer response.Body.Close()
@@ -71,15 +83,7 @@ func Collect() error {
 			text += "\n" + element.Text()
 		})
 
-		new := Article{
-			Author:      v.Author,
-			Title:       v.Title,
-			Description: v.Description,
-			Content:     text,
-			Url:         v.Url,
-			Image:       v.Image,
-			PublishedAt: formattedTime,
-		}
+		new.Content = text
 
 		correctedArticles = append(correctedArticles, new)
 	}
