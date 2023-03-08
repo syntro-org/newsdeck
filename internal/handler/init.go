@@ -6,6 +6,7 @@ func Init() *gin.Engine {
 	r := gin.New()
 	r.LoadHTMLGlob("pages/*")
 	r.Static("/static", "static/")
+	r.NoRoute(notFoundHandler)
 
 	r.GET("/", indexHandler)
 	r.GET("/posts", postsHandler)
