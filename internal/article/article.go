@@ -29,7 +29,7 @@ var Articles []Article
 
 func Collect() error {
 	conf := config.New()
-	URL = "https://newsapi.org/v2/everything?sources=bbc-news,cnn,the-washington-post&apiKey=" + conf.ApiKey
+	URL = "https://newsapi.org/v2/everything?sources=bbc-news,cnn,the-washington-post,associated-press,abc-news,reuters&language=en&sortBy=popularity&apiKey=" + conf.ApiKey
 
 	response, err := http.Get(URL)
 	if err != nil {
