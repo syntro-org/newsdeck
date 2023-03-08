@@ -5,7 +5,9 @@
   <h1>{{ .Article.Title }}</h1>
   <p class="hint">Автор: {{ .Article.Author }}</p>
   <p class="hint">Дата публикации: {{ .Article.PublishedAt }}</p>
-  <p>{{ .Article.Content }}</p>
+  {{ range .Article.SplitContent }}
+  <p>{{ . }}</p>
+  {{ end }}  
   <div class="indent"></div>
   <p class="hint">
     <abbr

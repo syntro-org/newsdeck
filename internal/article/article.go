@@ -3,6 +3,7 @@ package article
 import (
 	"encoding/json"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -90,4 +91,12 @@ func Collect() error {
 
 	Articles = correctedArticles
 	return nil
+}
+
+func (a Article) SplitContent() []string {
+	if strings.Contains(a.Content, "\n") {
+		return strings.Split(a.Content, "\n")
+	} else {
+		return []string{a.Content}
+	}
 }
