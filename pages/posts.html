@@ -1,6 +1,6 @@
 {{ template "header.html" . }}
-    <p id="top" class="accent text-center">Отображаемые новости поступают с задержкой 24 часа. Это связано с ограничением от агрегатора. <a
-            href="/support">Узнайте, как его снять</a></p>
+
+{{ template "filter.html" }}
 
 <div class="indent"></div>
 
@@ -10,7 +10,11 @@
         <img class="post-image" src="{{ .Image }}"/>
         <div class="text-indent"></div>
         <h3>{{ .Title }}</h3>
+        {{ if eq .Author nil }}
+        <p class="hint">Автор не указан</p>
+        {{ else }}
         <p class="hint">Автор: {{ .Author }}</p>
+        {{ end }}
         <p class="hint">Дата публикации: {{ .PublishedAt}} </p>
         <div class="small-indent"></div>
         <p>{{ .Description }}</p>
@@ -42,4 +46,6 @@
         в полном объеме.
     </p>
 </div>
+
+<script src="/static/js/file.js"></script>
 {{ template "footer.html" }}
