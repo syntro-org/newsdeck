@@ -1,0 +1,11 @@
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
