@@ -1,36 +1,39 @@
 {{ template "header.html" . }}
-<div class="st-bg indent corner">
-  <img class="post-image" src="{{ .Article.Image }}" />
-  <div class="text-indent"></div>
-  <h1>{{ .Article.Title }}</h1>
-  <p class="hint">Автор: {{ .Article.Author }}</p>
-  <p class="hint">Дата публикации: {{ .Article.PublishedAt }}</p>
-  {{ range .Article.SplitContent }}
-  <p>{{ . }}</p>
-  {{ end }}  
-  <div class="indent"></div>
-  <p class="hint">
-    <abbr
-      title="Если ссылка не открывается, значит данное СМИ заблокировано в вашей стране"
-      >Материал доступен полностью по </abbr><a href="{{ .Article.Url }}">этой ссылке</a>
-  </p>
-  <p class="accent">
-    Полный текст новости может отображаться некорректно. Просим отнестись к
-    этому с пониманием
-  </p>
-  <p class="hint italic">
-    Newsdeck и Συντρο не имеют отношения к предоставленному контенту
-  </p>
-  <h3>Обсуждение</h3>
-  <div id="disqus_thread"></div>
-  <script>
-    (function () {
-      var d = document,
-        s = d.createElement("script");
-      s.src = "https://newsdeck-1.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
+<div class="st-bg post-indent corner">
+  <div class="post-padding">
+    <img class="post-image" src="{{ .Article.Image }}" />
+    <div class="text-indent"></div>
+    <h1>{{ .Article.Title }}</h1>
+    <p class="hint">Автор: {{ .Article.Author }}</p>
+    <p class="hint">Дата публикации: {{ .Article.PublishedAt }}</p>
+    <div class="indent"></div>
+    {{ range .Article.SplitContent }}
+    <p class="post-text">{{ . }}</p>
+    {{ end }}  
+    <div class="indent"></div>
+    <p class="hint">
+      <abbr
+        title="Если ссылка не открывается, значит данное СМИ заблокировано в вашей стране"
+        >Материал доступен полностью по </abbr><a href="{{ .Article.Url }}">этой ссылке</a>
+    </p>
+    <p class="accent">
+      Полный текст новости может отображаться некорректно. Просим отнестись к
+      этому с пониманием
+    </p>
+    <p class="hint italic">
+      Newsdeck и Συντρο не имеют отношения к предоставленному контенту
+    </p>
+    <h3>Обсуждение</h3>
+    <div id="disqus_thread"></div>
+    <script>
+      (function () {
+        var d = document,
+          s = d.createElement("script");
+        s.src = "https://newsdeck-1.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  </div>
 </div>
 {{ template "footer.html" }}

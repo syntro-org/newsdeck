@@ -6,11 +6,11 @@
 
 <div class="st-bg indent corner posts-container">
     {{ range .Articles }}
-    <div class="thr-bg indent corner">
-        <img class="post-image" src="{{ .Image }}"/>
+    <div class="thr-bg indent corner posts-item">
+        <img class="posts-image" src="{{ .Image }}"/>
         <div class="text-indent"></div>
         <h3>{{ .Title }}</h3>
-        {{ if eq .Author nil }}
+        {{ if eq .Author "" }}
         <p class="hint">Автор не указан</p>
         {{ else }}
         <p class="hint">Автор: {{ .Author }}</p>

@@ -7,6 +7,14 @@
     padding: 15px;
 }
 
+.post-indent {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 170px;
+    margin-right: 170px;
+    padding: 15px;
+}
+
 .text-indent {
     margin: 10px;
 }
