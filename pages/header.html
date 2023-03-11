@@ -4,18 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/static/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/static/css/background.css">
-    <link rel="stylesheet" href="/static/css/footer.css">
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/indent.css">
-    <link rel="stylesheet" href="/static/css/main.css">
-    <link rel="stylesheet" href="/static/css/more-button.css">
-    <link rel="stylesheet" href="/static/css/post.css">
-    <link rel="stylesheet" href="/static/css/search.css">
-    <link rel="stylesheet" href="/static/css/support-button.css">
-    <link rel="stylesheet" href="/static/css/text.css">
-    <link rel="stylesheet" href="/static/css/top-button.css">
+    {{ template "css.html" }}
     <script id="dsq-count-scr" src="//newsdeck-1.disqus.com/count.js" async></script>
     <title>Newsdeck - {{ .Header }}</title>
 </head>

@@ -27,6 +27,19 @@ type Response struct {
 var URL string
 var Articles []Article
 
+func GetArticleByTitle(title string) Article {
+	var obj Article
+
+	for _, v := range Articles {
+		if v.Title == title {
+			obj = v
+			break
+		}
+	}
+
+	return obj
+}
+
 func Collect() error {
 	conf := config.New()
 	URL = "https://newsapi.org/v2/everything?sources=bbc-news,cnn,the-washington-post,associated-press,abc-news,reuters&language=en&apiKey=" + conf.ApiKey

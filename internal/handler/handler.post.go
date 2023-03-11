@@ -9,14 +9,7 @@ import (
 
 func postHandler(c *gin.Context) {
 	title := c.Param("title")
-	var obj article.Article
-
-	for _, v := range article.Articles {
-		if v.Title == title {
-			obj = v
-			break
-		}
-	}
+	obj := article.GetArticleByTitle(title)
 
 	c.HTML(http.StatusOK, "post.html", gin.H{
 		"Header":  obj.Title,

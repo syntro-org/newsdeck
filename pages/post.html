@@ -1,6 +1,9 @@
 {{ template "header.html" . }}
 <div class="st-bg post-indent corner">
   <div class="post-padding">
+    <div class="text-indent"></div>
+    <a href="https://www.deepl.com/translator#en/ru/{{ .Article }}" target="_blank">Перевод статьи (deepl)</a>
+    <div class="text-indent"></div>
     <img class="post-image" src="{{ .Article.Image }}" />
     <div class="text-indent"></div>
     <h1>{{ .Article.Title }}</h1>
