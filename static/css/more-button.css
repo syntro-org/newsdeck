@@ -6,8 +6,7 @@
 }
 
 .more-button {
-  --primary-color: #C0C0C0;
-  --hovered-color: #A72C2C;
+  --primary-color: var(--text);
   position: relative;
   display: flex;
   font-weight: 600;
@@ -20,7 +19,7 @@
   margin: 0;
   position: relative;
   font-size: 20px;
-  color: var(--primary-color)
+  color: var(--text)
 }
 
 .more-button::after {
@@ -29,7 +28,7 @@
   width: 0;
   left: 0;
   bottom: -7px;
-  background: var(--hovered-color);
+  background: var(--accent);
   height: 2px;
   transition: 0.3s ease-out;
 }
@@ -39,7 +38,7 @@
   content: "Подробнее";
   width: 0%;
   inset: 0;
-  color: var(--hovered-color);
+  color: var(--accent);
   overflow: hidden;
   transition: 0.3s ease-out;
 }
@@ -54,11 +53,11 @@
 
 .more-button:hover svg {
   transform: translateX(4px);
-  color: var(--hovered-color)
+  color: var(--accent)
 }
 
 .more-button svg {
-  color: var(--primary-color);
+  color: var(--text);
   transition: 0.2s;
   position: relative;
   width: 15px;

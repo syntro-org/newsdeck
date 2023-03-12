@@ -1,7 +1,7 @@
 a {
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
-    color: #A72C2C;
+    color: var(--accent);
 }
 
 h1 {
@@ -27,11 +27,11 @@ h3 {
 }
 
 .accent {
-    color: #A72C2C;
+    color: var(--accent);
 }
 
 .hint {
-    color: #898989;
+    color: var(--hint);
 }
 
 .text-center {

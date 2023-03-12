@@ -4,7 +4,7 @@
   bottom: 40px;
   right: 40px;
   justify-content: end;
-  color: #A72C2C;
+  color: var(--accent);
   border-radius: 50px;
   border-color: transparent;
   text-align: center;
@@ -27,5 +27,5 @@
   margin-right: auto;
   margin-top: 35%;
   margin-bottom: 60%;
-  border-bottom: 15px solid #A72C2C;
+  border-bottom: 15px solid var(--accent);
 }

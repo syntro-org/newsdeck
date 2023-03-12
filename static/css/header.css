@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  background-color: #2f2f2f;
+  background-color: var(--secondary);
   padding: 10px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -37,7 +37,7 @@
 .menu-button  {
   --border-right: 6px;
   --text-stroke-color: rgba(255,255,255,0.6);
-  --animation-color: #800000;
+  --animation-color: var(--accent);
   --fs-size: 1em;
   letter-spacing: 3px;
   text-decoration: none;

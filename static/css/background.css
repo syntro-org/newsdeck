@@ -1,9 +1,9 @@
 .st-bg {
-    background-color: #2f2f2f;
-    color: #C0C0C0;
+    background-color: var(--secondary);
+    color: var(--text);
 }
 
 .thr-bg {
-    background-color: #424242;
-    color: #C0C0C0;
+    background-color: var(--third);
+    color: var(--text);
 }
