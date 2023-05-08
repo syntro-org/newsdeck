@@ -28,7 +28,9 @@ func postsHandler(c *gin.Context) {
 
 		articles = searchArticles(q, d)
 	} else {
-		articles = article.Articles
+		for _, v := range article.Articles {
+			articles = append(articles, v)
+		}
 	}
 
 	c.HTML(http.StatusOK, "posts.html", gin.H{
