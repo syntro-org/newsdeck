@@ -25,7 +25,7 @@ func main() {
 	s := new(server.Server)
 	s.Run(server.MakeAddr())
 
-	ticker := time.NewTicker(24 * time.Hour)
+	ticker := time.NewTicker(1 * time.Hour)
 	go func() {
 		for {
 			select {
