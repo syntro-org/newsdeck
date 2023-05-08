@@ -21,6 +21,6 @@ html {
 }
 
 .corner {
-    border-radius: var(--border-radius);
+    border-radius: var(--corner-radius);
 }
 

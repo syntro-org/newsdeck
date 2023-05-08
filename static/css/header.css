@@ -3,7 +3,7 @@
   background-color: var(--secondary);
   padding: 10px;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: var(--corner-radius);
 }
 
 .header ul {
