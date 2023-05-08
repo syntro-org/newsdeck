@@ -25,7 +25,7 @@ type Response struct {
 }
 
 var URL string
-var Articles []Article
+var Articles map[string]Article
 
 func GetArticleByTitle(title string) Article {
 	var obj Article
@@ -56,50 +56,54 @@ func Collect() error {
 		return err
 	}
 
-	// Set new time format
-	var correctedArticles []Article
+	var correctedArticles map[string]Article = make(map[string]Article)
 
 	for _, v := range news.Articles {
-		t, err := time.Parse("2006-01-02T15:04:05.9999999Z", v.PublishedAt)
+		// Check if the article with the same title already exists in the map
+		if _, ok := Articles[v.Title]; !ok {
+			if _, ok = correctedArticles[v.Title]; !ok {
+				t, err := time.Parse("2006-01-02T15:04:05.9999999Z", v.PublishedAt)
 
-		if err != nil {
-			return err
+				if err != nil {
+					return err
+				}
+
+				formattedTime := t.Format("2006-01-02")
+
+				new := Article{
+					Author:      v.Author,
+					Title:       v.Title,
+					Description: v.Description,
+					Content:     v.Content,
+					Url:         v.Url,
+					Image:       v.Image,
+					PublishedAt: formattedTime,
+				}
+
+				// Get full text of article
+				response, err := http.Get(v.Url)
+				if err != nil {
+					correctedArticles[new.Title] = new
+					Articles = correctedArticles
+					return err
+				}
+				defer response.Body.Close()
+
+				document, err := goquery.NewDocumentFromReader(response.Body)
+				if err != nil {
+					return err
+				}
+
+				var text string
+				document.Find("p").Each(func(index int, element *goquery.Selection) {
+					text += "\n" + element.Text()
+				})
+
+				new.Content = text
+
+				correctedArticles[new.Title] = new
+			}
 		}
-
-		formattedTime := t.Format("02.01.2006 15:04")
-
-		new := Article{
-			Author:      v.Author,
-			Title:       v.Title,
-			Description: v.Description,
-			Content:     v.Content,
-			Url:         v.Url,
-			Image:       v.Image,
-			PublishedAt: formattedTime,
-		}
-
-		// Get full text of article
-		response, err := http.Get(v.Url)
-		if err != nil {
-			correctedArticles = append(correctedArticles, new)
-			Articles = correctedArticles
-			return err
-		}
-		defer response.Body.Close()
-
-		document, err := goquery.NewDocumentFromReader(response.Body)
-		if err != nil {
-			return err
-		}
-
-		var text string
-		document.Find("p").Each(func(index int, element *goquery.Selection) {
-			text += "\n" + element.Text()
-		})
-
-		new.Content = text
-
-		correctedArticles = append(correctedArticles, new)
 	}
 
 	Articles = correctedArticles
