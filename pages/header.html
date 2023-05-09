@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="page-name" content="{{ .InternalPageName }}">
     {{ template "css.html" }}
     <script id="dsq-count-scr" src="//newsdeck-1.disqus.com/count.js" async></script>
     <title>Newsdeck - {{ .Header }}</title>
@@ -50,6 +51,12 @@
                         <span class="hover-text" aria-hidden="true">&nbsp;Пользовательское&nbsp;соглашение&nbsp;</span>
                     </button>
                 </a>
+            </li>
+            <li>
+                <select name="lang" id="lang">
+                    <option value="ru">Русский</option>
+                    <option value="en">English</option>
+                  </select>
             </li>
             <li><img class="thr-bg corner" src="/static/favicon.png" width="107" height="41"/></li>
         </ul>
