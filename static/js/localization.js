@@ -48,4 +48,5 @@ document.addEventListener("DOMContentLoaded", function() {
 function onLanguageChanged() {
   let dropdown = document.getElementById("lang-dropdown");
   document.cookie = "lang=" + dropdown.options[dropdown.selectedIndex].value;
+  window.location.reload();
 }
