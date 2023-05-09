@@ -8,14 +8,13 @@ document.addEventListener("DOMContentLoaded", function() {
   );
 
   let lang = decodeURIComponent(matches[1]);
+  document.documentElement.lang = lang;
   let fileName = document.getElementById("page-name").getAttribute("content")
 
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let data = JSON.parse(this.responseText);
-      console.log(data);
-
       let elementsWithData = document.querySelectorAll(".json-data");
       for (const element of elementsWithData) {
         const fieldName = element.dataset.field;
@@ -23,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
           element.innerHTML = data[fieldName];
         }
       }
+
+      document.title = "Newsdeck - " + data.header;
     }
   };
   xmlhttp.open(
@@ -31,4 +32,20 @@ document.addEventListener("DOMContentLoaded", function() {
     true
   );
   xmlhttp.send();
+
+  let dropdown = document.getElementById("lang-dropdown");
+  for (let index = 0; index < dropdown.options.length; index++) {
+    const element = dropdown.options[index];
+    if(element.value == document.documentElement.lang) {
+      element.selected = true;
+      break;
+    }
+  }
+
+  dropdown.addEventListener("change", onLanguageChanged);
 });
+
+function onLanguageChanged() {
+  let dropdown = document.getElementById("lang-dropdown");
+  document.cookie = "lang=" + dropdown.options[dropdown.selectedIndex].value;
+}

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+select {
+    background-color: var(--third);
+    border-color: var(--third);
+    color: var(--text);
+    border-radius: var(--corner-radius);
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
