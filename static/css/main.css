@@ -23,3 +23,16 @@ html {
 .corner {
     border-radius: var(--corner-radius);
 }
+
+.END_OF_LIFE_MESSAGE_PANEL {
+    border-radius: var(--corner-radius);
+    background-color: var(--accent);
+    color: white;
+    font-family: 'Rubik';
+    font-weight: 400;
+}
+
+.END_OF_LIFE_MESSAGE_PANEL p {
+    text-align: center;
+    padding: 1%;
+}
